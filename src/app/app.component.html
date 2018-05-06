@@ -4,7 +4,6 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-
 <div>
-  <pm-pets pageTitle="Lista de Perros Hardcoded" [pageTitlePassedAsProperty]="componentTitle" pageTitleInterpolated="{{ componentTitle + ' You Can Add Something To The Interpolated Expression ' }}"></pm-pets>
+  <pm-pets [pageTitle]="componentTitle"></pm-pets>
 </div>
