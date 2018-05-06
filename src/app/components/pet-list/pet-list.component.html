@@ -33,6 +33,7 @@
                                 Show Image
                             </button>
                         </th>
+                        <th>Id</th>
                         <th>Pet</th>
                         <th>Age</th>
                         <th>Size</th>
@@ -49,12 +50,12 @@
                             <img [src]='aPet.imageUrl' [title]='aPet.name' [style.width.px]='imageWidth' [style.margin.px]='imageMargin' />
                         </td>
                         <td>{{aPet.id }}</td>
-                        <td>{{aPet.name}}</td>
+                        <td>{{aPet.name | uppercase}}</td>
                         <td>{{aPet.age}}</td>
                         <td>{{aPet.size}}</td>
                         <td>{{aPet.birthDate}}</td>
                         <td>{{aPet.weight}}</td>
-                        <td>{{aPet.breedName}}</td>
+                        <td>{{aPet.breedName | lowercase }}</td>
                     </tr>
                 </tbody>
             </table>
