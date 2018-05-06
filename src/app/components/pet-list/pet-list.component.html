@@ -29,8 +29,8 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'>
-                                Show Image
+                            <button class='btn btn-primary' (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
                         <th>Id</th>
@@ -47,7 +47,11 @@
                     <!-- Aca va todo el contenido de la tabla  -->
                     <tr *ngFor='let aPet of pets'>
                         <td>
-                            <img [src]='aPet.imageUrl' [title]='aPet.name' [style.width.px]='imageWidth' [style.margin.px]='imageMargin' />
+                            <img *ngIf='showImage' 
+                                [src]='aPet.imageUrl'
+                                [title]='aPet.name' 
+                                [style.width.px]='imageWidth' 
+                                [style.margin.px]='imageMargin'/>
                         </td>
                         <td>{{aPet.id }}</td>
                         <td>{{aPet.name | uppercase}}</td>
