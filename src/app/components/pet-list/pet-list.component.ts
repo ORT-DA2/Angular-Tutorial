@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'pm-pets',
     templateUrl: './pet-list.component.html'
 })
 export class PetListComponent {
-    pageTitle: string = "Pet List";
+    @Input() pageTitle: string = "Pet List";
 
     constructor() {
     }
