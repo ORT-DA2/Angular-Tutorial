@@ -45,7 +45,7 @@
                 <!--Cuerpo de la tabla-->
                 <tbody>
                     <!-- Aca va todo el contenido de la tabla  -->
-                    <tr *ngFor='let aPet of pets'>
+                    <tr *ngFor='let aPet of pets | petListFilter : listFilter'>
                         <td>
                             <img *ngIf='showImage' 
                                 [src]='aPet.imageUrl'

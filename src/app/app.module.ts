@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PetListComponent } from './components/pet-list/pet-list.component';
+import { PetListFilterPipe } from './components/pet-list/pet-list-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PetListComponent
+    PetListComponent,
+    PetListFilterPipe
   ],
   imports: [
     BrowserModule,
