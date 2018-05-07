@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import { PetListFilterPipe } from './components/pet-list/pet-list-filter.pipe';
+import { StarRateComponent } from './components/star/star-rate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetListComponent,
-    PetListFilterPipe
+    PetListFilterPipe,
+    StarRateComponent
   ],
   imports: [
     BrowserModule,

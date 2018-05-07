@@ -9,8 +9,9 @@ export class Pet {
     weight: number;
     breedName: string;
     imageUrl: string;
+    rating: number;
 
-    constructor(id:string, name:string, age:number, size:string, birthDate:Date, weight:number, breedName:string, imageUrl: string){
+    constructor(id:string, name:string, age:number, size:string, birthDate:Date, weight:number, breedName:string, rating:number, imageUrl: string) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -19,5 +20,6 @@ export class Pet {
         this.weight = weight;
         this.breedName = breedName;
         this.imageUrl = imageUrl;
+        this.rating = rating;
     }
 }
