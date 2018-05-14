@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import { Pet } from '../../classes/pet';
+import { PetService } from '../../services/pet/pet.service';
 
 @Component({
     selector: 'pm-pets', 
@@ -13,14 +14,17 @@ export class PetListComponent {
     imageMargin: number = 1;
     showImage: boolean = false;
     listFilter: string = "";
+    pets: Array<Pet>;
 
-    pets: Array<Pet> = [
-        new Pet("1","Perro 1",4,"Grande", new Date(),20,"Golden Retriever", 2, "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Golden_Retriever_with_tennis_ball.jpg/1200px-Golden_Retriever_with_tennis_ball.jpg"),
-        new Pet("2","Perro 2",4,"Chico", new Date(),20,"Golden", 4, "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Golden_Retriever_with_tennis_ball.jpg/1200px-Golden_Retriever_with_tennis_ball.jpg")
-    ];
+    constructor(private _petsService : PetService) {
+     // esta forma de escribir el parametro en el constructor lo que hace es:
+     // 1) declara un parametro de tipo PetService en el constructor
+     // 2) declara un atributo de clase privado llamado _petService
+     // 3) asigna el valor del parámetro al atributo de la clase
+    }
 
-    constructor() {
-
+    ngOnInit(): void {
+        this.pets = this._petsService.getPets();
     }
 
     toggleImage(): void {

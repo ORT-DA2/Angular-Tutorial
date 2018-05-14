@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PetListComponent } from './components/pet-list/pet-list.component';
 import { PetListFilterPipe } from './components/pet-list/pet-list-filter.pipe';
 import { StarRateComponent } from './components/star/star-rate.component';
+import { PetService } from './services/pet/pet.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { StarRateComponent } from './components/star/star-rate.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
