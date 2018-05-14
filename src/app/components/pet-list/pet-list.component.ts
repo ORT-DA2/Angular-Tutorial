@@ -24,7 +24,16 @@ export class PetListComponent {
     }
 
     ngOnInit(): void {
-        this.pets = this._petsService.getPets();
+        this._petsService.getPets().subscribe(
+            ((data : any) => this.result(data)),
+            ((error : any) => console.log(error))
+        )
+    }
+
+    private result(data:any):void {
+        console.log(data);
+        this.pets = data as Pet[];
+        console.log(this.pets);
     }
 
     toggleImage(): void {
