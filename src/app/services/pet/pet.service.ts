@@ -14,7 +14,6 @@ export class PetService {
     constructor(private _httpService: Http) {  }
 
     getPets(): Observable<Array<Pet>> {
-
         const myHeaders = new Headers();
         myHeaders.append('Accept', 'application/json');    
         const requestOptions = new RequestOptions({headers: myHeaders});

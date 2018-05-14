@@ -25,14 +25,13 @@ export class PetListComponent {
 
     ngOnInit(): void {
         this._petsService.getPets().subscribe(
-            ((data : any) => this.result(data)),
+            ((data : Array<Pet>) => this.result(data)),
             ((error : any) => console.log(error))
         )
     }
 
-    private result(data:any):void {
-        console.log(data);
-        this.pets = data as Pet[];
+    private result(data: Array<Pet>):void {
+        this.pets = data;
         console.log(this.pets);
     }
 
