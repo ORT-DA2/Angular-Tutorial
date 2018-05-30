@@ -1,0 +1,37 @@
+<div class="panel panel-primary" >
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <table class='table'>
+        <!--Cabezal de la tabla -->
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pet</th>
+                <th>Age</th>
+                <th>Size</th>
+                <th>Birth Date</th>
+                <th>Weight</th>
+                <th>Breed Name</th>
+            </tr>
+        </thead>
+        <!--Cuerpo de la tabla-->
+        <tbody>
+            <!-- Aca va todo el contenido de la tabla  -->
+            <tr>
+                <td>{{pet.id }}</td>
+                <td>{{pet.name | uppercase}}</td>
+                <td>{{pet.age}}</td>
+                <td>{{pet.size}}</td>
+                <td>{{pet.birthDate | date:'short'}}</td>
+                <td>{{pet.weight}}</td>
+                <td>{{pet.breedName | lowercase }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)="onBack()" style="width:80px">
+            <i class='glyphicon glyphicon-chevron-left' ></i> Back
+        </a>
+    </div>
+</div>
