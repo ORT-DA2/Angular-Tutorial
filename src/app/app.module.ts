@@ -12,6 +12,8 @@ import { StarRateComponent } from './components/star/star-rate.component';
 import { PetService } from './services/pet/pet.service';
 import { WelcomeComponent } from './components/home/welcome.component';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { PetDetailComponent } from './components/pets-detail/pet-detail.component';
+import { PetDetailGuard } from './components/pets-detail/pet-detail.guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     PetsComponent,
     PetListFilterPipe,
     WelcomeComponent,
-    StarRateComponent
+    StarRateComponent,
+    PetDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +31,16 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     HttpModule,
     RouterModule.forRoot([
       { path: 'pets', component: PetsComponent},
-      { path: 'pets/:id', component: PetListComponent },
+      { path: 'pets/:id', 
+        component: PetDetailComponent,
+        canActivate: [PetDetailGuard]
+      },
       { path: 'welcome', component:  WelcomeComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
   ],
-  providers: [PetService],
+  providers: [PetService, PetDetailGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
