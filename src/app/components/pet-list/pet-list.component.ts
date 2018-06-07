@@ -1,12 +1,15 @@
 import {Component, Input} from '@angular/core';
 import { Pet } from '../../classes/pet';
 import { PetService } from '../../services/pet/pet.service';
+import { IComponentCanBeDeactivated } from '../../guards/componentCanBeDeactivated';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'pm-pets', 
     templateUrl: './pet-list.component.html'
 })
-export class PetListComponent {
+export class PetListComponent implements IComponentCanBeDeactivated {
+
 
     @Input() pageTitle: string;
     pageOriginalTitle: string 
@@ -42,5 +45,10 @@ export class PetListComponent {
     onRatingClicked(message:string):void {
         this.pageOriginalTitle = this.pageOriginalTitle || this.pageTitle;
         this.pageTitle = this.pageOriginalTitle + ": " + message;
+    }
+
+    isLocked() : Observable<boolean> | Promise<boolean> | boolean
+    {
+        return true;
     }
 }

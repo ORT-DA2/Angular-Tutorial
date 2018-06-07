@@ -15,6 +15,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
 import { PetDetailComponent } from './components/pets-detail/pet-detail.component';
 import { PetDetailGuard } from './components/pets-detail/pet-detail.guard';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { LockGuard } from './guards/lock.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'pets', component: PetsComponent},
+      { path: 'pets', component: PetsComponent, canDeactivate: [LockGuard]},
       { path: 'pets/:id', 
         component: PetDetailComponent,
         canActivate: [PetDetailGuard]
@@ -42,7 +43,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
   ],
-  providers: [PetService, PetDetailGuard],
+  providers: [PetService, PetDetailGuard, LockGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
