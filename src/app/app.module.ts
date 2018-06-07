@@ -14,6 +14,7 @@ import { WelcomeComponent } from './components/home/welcome.component';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { PetDetailComponent } from './components/pets-detail/pet-detail.component';
 import { PetDetailGuard } from './components/pets-detail/pet-detail.guard';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PetDetailGuard } from './components/pets-detail/pet-detail.guard';
     PetsComponent,
     PetListFilterPipe,
     WelcomeComponent,
+    SafeHtmlPipe,
     StarRateComponent,
     PetDetailComponent
   ],
